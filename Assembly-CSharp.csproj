@@ -46,18 +46,7 @@
     <Analyzer Include="C:\Program Files\Unity\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Runner\Scripts\PlaneChecker.cs" />
-    <Compile Include="Assets\Runner\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Runner\Scripts\SpawnManager.cs" />
-    <Compile Include="Assets\Runner\Scripts\FishMovement.cs" />
-    <Compile Include="Assets\Runner\Scripts\Swipe.cs" />
-    <Compile Include="Assets\Runner\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Runner\Scripts\EndTurn.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Runner\Scripts\Magnet.cs" />
-    <Compile Include="Assets\Runner\Scripts\GameManagerRunner.cs" />
-    <Compile Include="Assets\Runner\Scripts\ObstacleManager.cs" />
-    <Compile Include="Assets\Runner\Scripts\ObstacleControl.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Editor\6000.2.7f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
