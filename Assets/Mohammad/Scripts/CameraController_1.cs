@@ -17,6 +17,7 @@ public class CameraController_1 : MonoBehaviour
     
     public CinemachineVirtualCameraBase backCam;
     public CinemachineVirtualCameraBase eyeCam;
+    public CinemachineVirtualCameraBase phoneCam;
     
     
     public Transform drawerTarget;
@@ -29,6 +30,7 @@ public class CameraController_1 : MonoBehaviour
     {
         backCam.Priority = 10;
         eyeCam.Priority = 0;
+        phoneCam.Priority = 0;
     }
     private void FixedUpdate()
     {
