@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public enum StateCamera
 {
     None,
@@ -10,7 +12,8 @@ public enum StateCamera
     Eye,
     LookAtHand,
     LookAtDrawer,
-    LookAtKnife
+    LookAtKnife,
+    LookAtDoor
 }
 
 public class CameraController_1 : MonoBehaviour
@@ -22,6 +25,7 @@ public class CameraController_1 : MonoBehaviour
     public Transform eyePose;
     public Transform phonePose;
     public Transform drawerPose;
+    public Transform doorPose;
     public float mouseSensitivity = 100f;
 
     private float pitch = 0f; // بالا و پایین
@@ -49,20 +53,26 @@ public class CameraController_1 : MonoBehaviour
     public GameObject light;
 
     public ObjectShake mobileShake;
+    public GameObject fadeIN;
+    public GameObject fadeOUT;
     void Start()
     {
+        fadeIN.SetActive(false);
+        fadeOUT.SetActive(true);
         transform.position = backPose.position;
         transform.rotation = backPose.rotation;
 
         Cursor.lockState = CursorLockMode.Locked;
+        
+        stateCamera = StateCamera.BackOut;
         StartCoroutine(IE_DelayBackOut());
         StartCoroutine(IE_DelayStart());
     }
 
     IEnumerator IE_DelayBackOut()
     {
-        yield return new WaitForSeconds(1);
-        stateCamera = StateCamera.BackOut;
+        yield return new WaitForSeconds(2);
+        fadeOUT.SetActive(false);
     }
 
     IEnumerator IE_DelayStart()
@@ -91,6 +101,14 @@ public class CameraController_1 : MonoBehaviour
             moveState = 6;
             drawer.MoveKnife();
         }
+        
+        if (Input.GetKeyDown(KeyCode.F) && moveState == 8)
+        {
+            print("Click Door");
+            moveState = 9;
+            
+            stateCamera = StateCamera.LookAtDoor;
+        }
     }
 
     private void FixedUpdate()
@@ -107,6 +125,10 @@ public class CameraController_1 : MonoBehaviour
 
         if (stateCamera == StateCamera.Eye)
         {
+            if (moveState==7)
+            {
+                print("checkeye");
+            }
             GoToEye();
         }
 
@@ -118,6 +140,10 @@ public class CameraController_1 : MonoBehaviour
         if (stateCamera != StateCamera.None)
         {
             MoveCamera();
+        }
+        if (stateCamera == StateCamera.LookAtDoor)
+        {
+            GoToDoor();
         }
     }
 
@@ -143,13 +169,14 @@ public class CameraController_1 : MonoBehaviour
             eyePose.rotation,
             speeRotCam * Time.deltaTime
         );
-
-        if (Vector3.Distance(transform.position, eyePose.position) < 1 &&
-            Quaternion.Angle(transform.rotation, eyePose.rotation) < 5f)
+        
+        if (Vector3.Distance(transform.position, eyePose.position) < 1)// &&
+           // Quaternion.Angle(transform.rotation, eyePose.rotation) < 10f)
         {
-            print("GoToEye DONE!");
             if (moveState==7)
             {
+                
+                print("GoToEye DONE!");
                 moveState = 8;
                 StartCoroutine(IE_InLight());
             }
@@ -226,17 +253,30 @@ public class CameraController_1 : MonoBehaviour
         }
     }
 
-    void ChangeRotateCinema(CinemachineHardLookAt currentLookAt, CinemachineHardLookAt targetLookAt)
+    public void GoToDoor()
     {
-        Vector3 current = currentLookAt.LookAtOffset;
-        Vector3 targetEuler = targetLookAt.LookAtOffset;
-
-        Vector3 newEuler = new Vector3(
-            Mathf.LerpAngle(current.x, targetEuler.x, Time.deltaTime * speedRotateCinema),
-            Mathf.LerpAngle(current.y, targetEuler.y, Time.deltaTime * speedRotateCinema),
-            Mathf.LerpAngle(current.z, targetEuler.z, Time.deltaTime * speedRotateCinema)
+        transform.position = Vector3.MoveTowards(transform.position, doorPose.position, speedMoveCam * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            doorPose.rotation,
+            speeRotCam * Time.deltaTime
         );
 
-        currentLookAt.LookAtOffset = newEuler;
+        if (Vector3.Distance(transform.position, doorPose.position) < 1 )//&&
+            //Quaternion.Angle(transform.rotation, doorPose.rotation) < 5f)
+        {
+            print("GoToDoor DONE!");
+            if (moveState==9)
+            {
+                moveState = 10;
+                fadeIN.SetActive(true);
+                StartCoroutine(IE_DelayWinLevel1());
+            }
+        }
+    }
+    IEnumerator IE_DelayWinLevel1()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("MainRoom");
     }
 }

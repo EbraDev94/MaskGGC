@@ -50,7 +50,7 @@ public class Drawer : MonoBehaviour
             if (Vector3.Distance(transform.GetChild(0).position,targetHand.position)<0.05f)
             {
                 moveState = 5;
-
+                print("Get Knife ");
                 FindAnyObjectByType<CameraController_1>().stateCamera = StateCamera.Eye;
                 FindAnyObjectByType<CameraController_1>().moveState = 7;
             }
