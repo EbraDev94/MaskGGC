@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Xaser\\MaskGGC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40D0C7F6-2044-7F59-C926-1836EF45159C}|Assembly-CSharp.csproj|c:\\users\\xaser\\maskggc\\assets\\fries and seagull\\city 03\\scene props\\scripts\\setup\\friesmanagerbrp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D0C7F6-2044-7F59-C926-1836EF45159C}|Assembly-CSharp.csproj|solutionrelative:assets\\fries and seagull\\city 03\\scene props\\scripts\\setup\\friesmanagerbrp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FriesManagerBRP.cs",
+              "DocumentMoniker": "C:\\Users\\Xaser\\MaskGGC\\Assets\\Fries and Seagull\\City 03\\Scene Props\\Scripts\\Setup\\FriesManagerBRP.cs",
+              "RelativeDocumentMoniker": "Assets\\Fries and Seagull\\City 03\\Scene Props\\Scripts\\Setup\\FriesManagerBRP.cs",
+              "ToolTip": "C:\\Users\\Xaser\\MaskGGC\\Assets\\Fries and Seagull\\City 03\\Scene Props\\Scripts\\Setup\\FriesManagerBRP.cs",
+              "RelativeToolTip": "Assets\\Fries and Seagull\\City 03\\Scene Props\\Scripts\\Setup\\FriesManagerBRP.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T11:04:11.903Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
