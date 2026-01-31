@@ -26,6 +26,8 @@ public class CameraController_1 : MonoBehaviour
     public Transform headTarget;
     public Transform handtarget;
     public float speedLookAtHand = 5f;
+    
+    public float speedRotateCinema = 5f;
     void Start()
     {
         backCam.Priority = 10;
@@ -36,30 +38,45 @@ public class CameraController_1 : MonoBehaviour
     {
         if (stateCamera==StateCamera.LookAtHand)
         {
-            LookAtHand();
+            GoToHand();
         }
         if (stateCamera==StateCamera.LookAtDrawer)
         {
+            GoToEye();
             LookAtDrawer();
         }
         if (stateCamera==StateCamera.Eye)
         {
             GoToEye();
+           // ChangeRotateCinema(backCam.GetComponent<CinemachineHardLookAt>(),eyeCam.GetComponent<CinemachineHardLookAt>());
         }
         if (stateCamera==StateCamera.Back)
         {
             GoToBack();
+           // ChangeRotateCinema(eyeCam.GetComponent<CinemachineHardLookAt>(),backCam.GetComponent<CinemachineHardLookAt>());
+
         }
     }
     public void GoToEye()
     {
         eyeCam.Priority = 20;
         backCam.Priority = 0;
+        phoneCam.Priority = 0;
     }
+
+    private Transform targetgoal;
     public void GoToBack()
     {
         backCam.Priority = 20;
         eyeCam.Priority = 0;
+        phoneCam.Priority = 0;
+    }
+    public void GoToHand()
+    {
+        backCam.Priority = 0;
+        eyeCam.Priority = 0;
+        phoneCam.Priority = 20;
+        
     }
     void LookAtHand()
     {
@@ -104,5 +121,18 @@ public class CameraController_1 : MonoBehaviour
             stateCamera = StateCamera.None;
         }
     }
-    
+
+    void ChangeRotateCinema(CinemachineHardLookAt currentLookAt,CinemachineHardLookAt targetLookAt)
+    {
+        Vector3 current = currentLookAt.LookAtOffset;
+        Vector3 targetEuler = targetLookAt.LookAtOffset;
+        
+        Vector3 newEuler = new Vector3(
+            Mathf.LerpAngle(current.x, targetEuler.x, Time.deltaTime * speedRotateCinema),
+            Mathf.LerpAngle(current.y, targetEuler.y, Time.deltaTime * speedRotateCinema),
+            Mathf.LerpAngle(current.z, targetEuler.z, Time.deltaTime * speedRotateCinema)
+        );
+
+        currentLookAt.LookAtOffset = newEuler;
+    }
 }

@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &313149872
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1405,11 +1405,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274032254}
+  - component: {fileID: 1274032257}
   - component: {fileID: 1274032253}
   - component: {fileID: 1274032252}
   - component: {fileID: 1274032255}
   - component: {fileID: 1274032256}
-  - component: {fileID: 1274032257}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1588,6 +1588,7 @@ MonoBehaviour:
   headTarget: {fileID: 1118643284}
   handtarget: {fileID: 411119493}
   speedLookAtHand: 1.5
+  speedRotateCinema: 5
 --- !u!1 &1381829023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,8 +1728,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629987508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35296643, y: -0.1265895, z: 0.048264228, w: 0.9257756}
-  m_LocalPosition: {x: 0.80799997, y: -0.33599997, z: -0.012000084}
+  m_LocalRotation: {x: 0.3303393, y: -0.23898406, z: 0.08685234, w: 0.90896606}
+  m_LocalPosition: {x: 1.3280001, y: -0.12599993, z: -0.102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1746,7 +1747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 0}
+  LookAtOffset: {x: 0.12, y: 0.08, z: 0}
 --- !u!114 &1629987511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,7 +1766,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0.34, y: 1.13, z: -1.22}
+  FollowOffset: {x: 0.86, y: 1.34, z: -1.31}
 --- !u!114 &1629987512
 MonoBehaviour:
   m_ObjectHideFlags: 0
