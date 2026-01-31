@@ -139,7 +139,7 @@ public class CameraController_1 : MonoBehaviour
 
         if (stateCamera != StateCamera.None)
         {
-            MoveCamera();
+           // MoveCamera();
         }
         if (stateCamera == StateCamera.LookAtDoor)
         {
@@ -169,7 +169,7 @@ public class CameraController_1 : MonoBehaviour
             eyePose.rotation,
             speeRotCam * Time.deltaTime
         );
-        
+        print("GoToEye");
         if (Vector3.Distance(transform.position, eyePose.position) < 1)// &&
            // Quaternion.Angle(transform.rotation, eyePose.rotation) < 10f)
         {
@@ -277,6 +277,6 @@ public class CameraController_1 : MonoBehaviour
     IEnumerator IE_DelayWinLevel1()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("MainRoom");
+        SceneManager.LoadScene("Main");
     }
 }

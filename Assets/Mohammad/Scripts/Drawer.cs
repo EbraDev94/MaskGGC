@@ -49,6 +49,7 @@ public class Drawer : MonoBehaviour
             transform.GetChild(0).position = Vector3.MoveTowards(transform.GetChild(0).position, targetHand.position, speedmoveKnife * Time.deltaTime);
             if (Vector3.Distance(transform.GetChild(0).position,targetHand.position)<0.05f)
             {
+                transform.GetChild(0).gameObject.SetActive(false);
                 moveState = 5;
                 print("Get Knife ");
                 FindAnyObjectByType<CameraController_1>().stateCamera = StateCamera.Eye;
