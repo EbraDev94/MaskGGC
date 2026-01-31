@@ -34,9 +34,10 @@ public class Drawer : MonoBehaviour
         if (moveState==1)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speedmove * Time.deltaTime);
-            if (Vector3.Distance(transform.position,target.position)<1f)
+            if (Vector3.Distance(transform.position,target.position)<0.05f)
             {
                 moveState = 3;
+                FindAnyObjectByType<CameraController_1>().moveState = 5;
             }
         }
         else if (moveState==2)
@@ -46,9 +47,12 @@ public class Drawer : MonoBehaviour
         if (moveState==4)
         {
             transform.GetChild(0).position = Vector3.MoveTowards(transform.GetChild(0).position, targetHand.position, speedmoveKnife * Time.deltaTime);
-            if (Vector3.Distance(transform.GetChild(0).position,target.position)<1f)
+            if (Vector3.Distance(transform.GetChild(0).position,targetHand.position)<0.05f)
             {
                 moveState = 5;
+
+                FindAnyObjectByType<CameraController_1>().stateCamera = StateCamera.Eye;
+                FindAnyObjectByType<CameraController_1>().moveState = 7;
             }
         }
     }
