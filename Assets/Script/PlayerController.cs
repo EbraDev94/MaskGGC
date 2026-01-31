@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerCamera; // Camera as child of player
 
     private float xRotation = 0f; // محدود کردن نگاه بالا/پایین
-
+    public Animator anim; 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // موس مخفی و قفل روی صفحه
@@ -18,10 +19,35 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Attack && !kill)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                kill = true;
+                anim.gameObject.SetActive(true);
+                KillWoman();
+                StartCoroutine(IE_KillWoman(3));
+               // StartCoroutine(IE_KillWoman(4));
+
+            }
+        }
         HandleMouseLook();
         HandleMovement();
     }
 
+    private bool kill = false;
+
+    void KillWoman()
+    {
+        anim.Play("Knife");
+    }
+
+    IEnumerator IE_KillWoman(int n)
+    {
+        yield return new WaitForSeconds(n);
+        
+        anim.gameObject.SetActive(false);
+    }
     void HandleMouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -49,7 +75,7 @@ public class PlayerController : MonoBehaviour
     private bool Attack = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Woman")
+        if (other.tag=="Woman" || other.tag=="Zengin")
         {
             Attack = true;
         }
