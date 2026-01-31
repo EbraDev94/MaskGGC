@@ -49,14 +49,17 @@
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\ArrayArrangement.cs" />
     <Compile Include="Assets\Mohammad\Scripts\ObjectShake.cs" />
     <Compile Include="Assets\Mohammad\Scripts\Drawer.cs" />
+    <Compile Include="Assets\ithappy\Animals_FREE\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\AButtonAttribute.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Setup\SetupScriptBRP.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\PrefabGroup.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\FenceData.cs" />
+    <Compile Include="Assets\ithappy\Animals_FREE\Scripts\MovePlayerInput.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\MaterialHider.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\KiiValuePair.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Setup\FriesManagerURP.cs" />
     <Compile Include="Assets\Mohammad\Scripts\CameraController_1.cs" />
+    <Compile Include="Assets\Script\StreetManager.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Setup\FriesManagerBRP.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\AnInspector.cs" />
     <Compile Include="Assets\Script\Sc_Woman.cs" />
@@ -72,9 +75,13 @@
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\KeyValuePairPropertyDrawer.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Rotatable.cs" />
     <Compile Include="Assets\Script\Sc_Man.cs" />
+    <Compile Include="Assets\ithappy\Animals_FREE\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Fries and Seagull\City 03\Scene Props\Scripts\Inspector\IgnoreInInspectorAttribute.cs" />
+    <Compile Include="Assets\ithappy\Animals_FREE\Scripts\CreatureMover.cs" />
+    <Compile Include="Assets\Script\CatFake.cs" />
     <Compile Include="Assets\Script\HandheldShake.cs" />
     <None Include="Assets\Polyland\Battle_Knife\ReadMe.txt" />
+    <None Include="Assets\ithappy\Animals_FREE\Render_Pipeline_Convert\Documentation.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Editor\6000.2.7f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
